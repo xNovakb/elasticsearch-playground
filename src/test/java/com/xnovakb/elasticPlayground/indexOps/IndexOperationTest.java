@@ -1,6 +1,7 @@
 package com.xnovakb.elasticPlayground.indexOps;
 
 import com.xnovakb.elasticPlayground.AbstractTest;
+import com.xnovakb.elasticPlayground.indexOps.entity.Customer;
 import com.xnovakb.elasticPlayground.indexOps.entity.Review;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
@@ -37,6 +38,13 @@ public class IndexOperationTest extends AbstractTest {
         verify(indexOperations, 2, 2);
     }
 
+    @Test
+    public void createIndexFromEntityWithSettingsAndMappingsFromJson() {
+        final var indexOperations = elasticOps.indexOps(Customer.class);
+        Assertions.assertTrue(indexOperations.createWithMapping());
+
+        verify(indexOperations, 3, 0);
+    }
 
     private void verify(IndexOperations indexOperations, Integer expectedShards, Integer expectedReplicas) {
         final var settings = indexOperations.getSettings();
