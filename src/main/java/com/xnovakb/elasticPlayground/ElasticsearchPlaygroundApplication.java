@@ -1,4 +1,4 @@
-package com.xnovakb.elasticsearch_playground;
+package com.xnovakb.elasticPlayground;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

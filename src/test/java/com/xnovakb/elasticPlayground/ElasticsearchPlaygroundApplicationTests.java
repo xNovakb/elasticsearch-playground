@@ -1,4 +1,4 @@
-package com.xnovakb.elasticsearch_playground;
+package com.xnovakb.elasticPlayground;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
