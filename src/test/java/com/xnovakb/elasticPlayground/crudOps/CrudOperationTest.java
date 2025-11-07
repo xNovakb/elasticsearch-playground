@@ -1,5 +1,6 @@
-package com.xnovakb.elasticPlayground;
+package com.xnovakb.elasticPlayground.crudOps;
 
+import com.xnovakb.elasticPlayground.AbstractTest;
 import com.xnovakb.elasticPlayground.crudOps.entity.Employee;
 import com.xnovakb.elasticPlayground.crudOps.repository.EmployeeRepository;
 import lombok.extern.slf4j.Slf4j;
