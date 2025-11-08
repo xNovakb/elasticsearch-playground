@@ -14,4 +14,12 @@ public interface ProductRepository extends ElasticsearchRepository<Product, Inte
 
     SearchHits<Product> findByCategoryIn(List<String> categories);
 
+    SearchHits<Product> findByCategoryAndBrand(String category, String brand);
+
+    SearchHits<Product> findByName(String name);
+
+    SearchHits<Product> findByPriceLessThan(Integer price);
+
+
+
 }

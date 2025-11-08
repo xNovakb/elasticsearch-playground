@@ -44,4 +44,28 @@ public class QueryMethodsTest extends AbstractTest {
         Assertions.assertEquals(8, searchHits.getTotalHits());
     }
 
+    @Test
+    public void findByCategoryAndBrand() {
+        final var searchHits = repo.findByCategoryAndBrand("Furniture", "Ikea");
+
+        searchHits.forEach(print());
+        Assertions.assertEquals(2, searchHits.getTotalHits());
+    }
+
+    @Test
+    public void findByName() {
+        final var searchHits = repo.findByName("table");
+
+        searchHits.forEach(print());
+        Assertions.assertEquals(2, searchHits.getTotalHits());
+    }
+
+    @Test
+    public void findByPriceLt() {
+        final var searchHits = repo.findByPriceLessThan(80);
+
+        searchHits.forEach(print());
+        Assertions.assertEquals(5, searchHits.getTotalHits());
+    }
+
 }
