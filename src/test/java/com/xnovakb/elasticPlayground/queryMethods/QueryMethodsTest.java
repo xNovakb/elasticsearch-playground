@@ -9,6 +9,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 
 import java.io.IOException;
 import java.util.List;
@@ -66,6 +68,24 @@ public class QueryMethodsTest extends AbstractTest {
 
         searchHits.forEach(print());
         Assertions.assertEquals(5, searchHits.getTotalHits());
+    }
+
+    @Test
+    public void findByPriceBetweenWithSort() {
+        final var searchHits = repo.findByPriceBetween(10, 120, Sort.by(Product.Fields.price));
+
+        searchHits.forEach(print());
+        Assertions.assertEquals(8, searchHits.getTotalHits());
+    }
+
+    @Test
+    public void findByCategoryWithPagination() {
+        final var searchPage = repo.findByCategory("Furniture", PageRequest.of(1, 4));
+        searchPage.getSearchHits().forEach(print());
+
+        Assertions.assertEquals(1, searchPage.getNumber());
+        Assertions.assertEquals(1, searchPage.getTotalPages());
+        Assertions.assertEquals(12, searchPage.getTotalElements());
     }
 
 }

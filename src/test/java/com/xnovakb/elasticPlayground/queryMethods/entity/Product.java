@@ -2,6 +2,7 @@ package com.xnovakb.elasticPlayground.queryMethods.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.FieldNameConstants;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Mapping;
@@ -10,6 +11,7 @@ import org.springframework.data.elasticsearch.annotations.Mapping;
 @Mapping(mappingPath = "queryMethods/index-mapping.json")
 @Getter
 @Setter
+@FieldNameConstants
 public class Product {
 
     @Id

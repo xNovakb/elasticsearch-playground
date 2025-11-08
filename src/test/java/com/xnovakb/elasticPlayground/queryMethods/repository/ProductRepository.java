@@ -1,7 +1,10 @@
 package com.xnovakb.elasticPlayground.queryMethods.repository;
 
 import com.xnovakb.elasticPlayground.queryMethods.entity.Product;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.elasticsearch.core.SearchHits;
+import org.springframework.data.elasticsearch.core.SearchPage;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 import org.springframework.stereotype.Repository;
 
@@ -20,6 +23,8 @@ public interface ProductRepository extends ElasticsearchRepository<Product, Inte
 
     SearchHits<Product> findByPriceLessThan(Integer price);
 
+    SearchHits<Product> findByPriceBetween(Integer from, Integer to, Sort sort);
 
+    SearchPage<Product> findByCategory(String category, Pageable pageable);
 
 }
