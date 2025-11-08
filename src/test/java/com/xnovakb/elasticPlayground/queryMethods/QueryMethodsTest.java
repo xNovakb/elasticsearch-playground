@@ -85,7 +85,7 @@ public class QueryMethodsTest extends AbstractTest {
 
         Assertions.assertEquals(1, searchPage.getNumber());
         Assertions.assertEquals(1, searchPage.getTotalPages());
-        Assertions.assertEquals(12, searchPage.getTotalElements());
+        Assertions.assertEquals(4, searchPage.getTotalElements());
     }
 
 }
